@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+matt = {editable = true,path = "."}
+tox = "~=3.15"
+pytest-cov = "~=2.9"
+black = "==19.10b0"
+twine = "~=3.1"
+pytest = "~=5.4"
+codecov = "~=2.1"
+tox-travis = "==0.12"
+pipenv-setup = "~=3.0"
+
+[packages]
+
+[scripts]
+build = 'python setup.py sdist'
+release = 'python -m twine upload dist/*'
