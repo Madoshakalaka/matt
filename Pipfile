@@ -13,8 +13,15 @@ pytest = "~=5.4"
 codecov = "~=2.1"
 tox-travis = "==0.12"
 pipenv-setup = "~=3.0"
+pyinstaller = "*"
 
 [packages]
+gooey = {git = "https://github.com/Madoshakalaka/Gooey.git"}
+gitdir = {git = "https://github.com/Madoshakalaka/gitdir.git"}
+pyautogui = "*"
+pysimplegui = "*"
+typing-extensions = "*"
+pyunpack = "*"
 
 [scripts]
 build = 'python setup.py sdist'

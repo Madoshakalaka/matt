@@ -1,0 +1,1 @@
+echo "alias matt='cd $(realpath .) && pipenv run matt'" >> ~/.bashrc

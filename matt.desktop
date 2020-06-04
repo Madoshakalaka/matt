@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=matt
+Comment=matt
+Exec=pipenv run matt
+Icon=/home/matt/PycharmProjects/matt/matt/main.py
+Path=/home/matt/PycharmProjects/matt/
+Terminal=false
+Type=Application
+Categories=Utility;Application;
