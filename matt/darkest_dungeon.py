@@ -11,18 +11,31 @@ import sys
 from matt import AppName
 import PySimpleGUI as sg
 from pyunpack import Archive
-
-# used in dev
+from sys import platform
 from matt.app_components import AppHandler
 
 
+# used in dev
 def get_monster_folder_names() -> List[str]:
-    d = "/home/matt/.steam/steam/steamapps/common/DarkestDungeon/monsters"
+    if platform == 'win32':
+        d = r"C:\Program Files (x86)\Steam\steamapps\common\DarkestDungeon\monsters"
+    elif platform == 'darwin':
+        # todo: macOS
+        d = "shit"
+    else:
+        d = "/home/matt/.steam/steam/steamapps/common/DarkestDungeon/monsters"
     return [p.name for p in Path(d).glob("*") if p.is_dir()]
 
 
 def find_warrens_1() -> Path:
-    workshop_content_dir = Path("/home/matt/.steam/steam/steamapps/workshop/content/")
+    if platform == 'win32':
+        workshop_content_dir = Path(r"C:\Program Files (x86)\Steam\steamapps\workshop\content")
+    elif platform == 'darwin':
+        # todo: macOS
+        workshop_content_dir = Path("shit")
+    else:
+        workshop_content_dir = Path("/home/matt/.steam/steam/steamapps/workshop/content/")
+
     for content in workshop_content_dir.glob("*"):
         if content.is_dir():
             if (content / "1885424457").exists():
@@ -173,6 +186,7 @@ class Skin:
         async
         :return: a StringIO for progress
         """
+        # todo: create a directory first
         return subprocess.Popen(
             [
                 sys.executable,
